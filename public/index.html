@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -7,8 +9,14 @@
 
     <title>Calendario Compartido</title>
 
+    <!-- FUENTE -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -18,27 +26,63 @@
   <body>
     <div class="background"></div>
 
+    <!-- HEADER -->
+
     <header class="topbar">
-      <div class="logo-container">
+      <div class="logo-section">
         <img src="/logo.png" class="logo" alt="Logo" />
 
         <div>
           <h1>Calendario Compartido</h1>
-          <p>Eventos y organización grupal</p>
+
+          <p>Organización grupal y eventos</p>
         </div>
+      </div>
+
+      <div class="controls">
+        <button id="prevBtn">←</button>
+
+        <h2 id="monthTitle"></h2>
+
+        <button id="nextBtn">→</button>
       </div>
     </header>
 
+    <!-- WEEK DAYS -->
+
+    <section class="weekdays">
+      <div>Lun</div>
+      <div>Mar</div>
+      <div>Mié</div>
+      <div>Jue</div>
+      <div>Vie</div>
+      <div>Sáb</div>
+      <div>Dom</div>
+    </section>
+
+    <!-- CALENDAR -->
+
     <main>
-      <div class="calendar-wrapper">
-        <div id="calendar"></div>
-      </div>
+      <div id="calendar"></div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <!-- MODAL -->
 
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/locales/es.global.min.js"></script>
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Nuevo Evento</h3>
+
+        <input type="text" id="eventTitle" placeholder="Nombre del evento" />
+
+        <div class="modal-buttons">
+          <button id="cancelBtn">Cancelar</button>
+
+          <button id="saveBtn">Guardar</button>
+        </div>
+      </div>
+    </div>
 
     <script src="/app.js"></script>
   </body>
 </html>
+
