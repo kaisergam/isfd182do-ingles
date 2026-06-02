@@ -4,7 +4,7 @@ compatibility_date = "2026-06-01"
 
 [[kv_namespaces]]
 binding = "CALENDAR"
-id = "01dbfaa23813de0ed498516365ee24eb"
+id = "9658a422109840be87ca316efa63c259"
 
 [assets]
 directory = "./public"
