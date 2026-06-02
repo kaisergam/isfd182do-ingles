@@ -1,62 +1,79 @@
-
+/* public/style.css */
 
 * {
   box-sizing: border-box;
 }
 
 body {
-
   margin: 0;
 
   min-height: 100vh;
 
   overflow-x: hidden;
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 
   color: white;
 
-  background:
-    linear-gradient(
-      135deg,
-      #0f172a,
-      #111827,
-      #1e293b
-    );
+  background: linear-gradient(
+    135deg,
+    #020617 0%,
+    #0f172a 25%,
+    #172554 60%,
+    #3b0764 100%
+  );
 }
 
 /* =========================
-   BACKGROUND
+   BACKGROUND GLOW
 ========================= */
 
 .background {
-
   position: fixed;
 
   inset: 0;
 
   z-index: -1;
 
-  background:
+  overflow: hidden;
+}
 
-    radial-gradient(
-      circle at top left,
-      rgba(59,130,246,0.25),
-      transparent 30%
-    ),
+.background::before,
+.background::after {
+  content: "";
 
-    radial-gradient(
-      circle at bottom right,
-      rgba(168,85,247,0.25),
-      transparent 30%
-    );
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.35;
+}
+
+.background::before {
+  background: #3b82f6;
+
+  top: -120px;
+  left: -120px;
+}
+
+.background::after {
+  background: #a855f7;
+
+  bottom: -150px;
+  right: -150px;
 }
 
 /* =========================
-   HEADER
+   TOPBAR
 ========================= */
 
 .topbar {
+  padding: 28px 28px 10px;
 
   display: flex;
 
@@ -64,60 +81,62 @@ body {
 
   align-items: center;
 
-  padding:
-    30px 40px 10px;
-
-  gap: 20px;
+  gap: 24px;
 
   flex-wrap: wrap;
 }
 
-.logo-section {
+/* =========================
+   HERO
+========================= */
 
+.logo-section {
   display: flex;
 
   align-items: center;
 
-  gap: 20px;
+  gap: 22px;
 }
 
 .logo {
-
-  width: 90px;
-
-  height: 90px;
+  width: 95px;
+  height: 95px;
 
   object-fit: contain;
 
-  padding: 12px;
+  padding: 14px;
 
-  border-radius: 24px;
+  border-radius: 28px;
 
-  background:
-    rgba(255,255,255,0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
 
-  border:
-    1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-  backdrop-filter:
-    blur(14px);
+  backdrop-filter: blur(18px);
 
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
 }
 
 .logo-section h1 {
-
   margin: 0;
 
-  font-size: 2.2rem;
+  font-size: 2.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
 }
 
 .logo-section p {
+  margin-top: 10px;
 
-  margin-top: 8px;
+  opacity: 0.75;
 
-  opacity: 0.7;
+  font-size: 1.05rem;
 }
 
 /* =========================
@@ -125,83 +144,92 @@ body {
 ========================= */
 
 .controls {
-
   display: flex;
 
   align-items: center;
 
   gap: 16px;
+
+  padding: 10px 16px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
 }
 
 .controls button {
-
-  width: 46px;
-
-  height: 46px;
+  width: 50px;
+  height: 50px;
 
   border: none;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   color: white;
 
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 
   cursor: pointer;
 
-  background:
-    rgba(255,255,255,0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.8),
+    rgba(168, 85, 247, 0.8)
+  );
 
-  backdrop-filter:
-    blur(10px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 
   transition: 0.2s;
 }
 
 .controls button:hover {
-
-  transform:
-    translateY(-2px);
-
-  background:
-    rgba(255,255,255,0.14);
+  transform: translateY(-3px) scale(1.05);
 }
 
 #monthTitle {
-
-  min-width: 220px;
+  min-width: 240px;
 
   text-align: center;
 
   font-size: 1.5rem;
+
+  font-weight: 600;
 }
 
 /* =========================
-   WEEK DAYS
+   WEEKDAYS
 ========================= */
 
 .weekdays {
-
   display: grid;
 
-  grid-template-columns:
-    repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 
-  gap: 12px;
+  gap: 14px;
 
-  padding:
-    0 30px;
+  padding: 0 28px;
 
-  margin-top: 10px;
-
-  opacity: 0.8;
+  margin-top: 14px;
 }
 
 .weekdays div {
-
   text-align: center;
 
-  padding: 10px;
+  padding: 12px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  font-size: 0.92rem;
+
+  opacity: 0.85;
 }
 
 /* =========================
@@ -209,19 +237,15 @@ body {
 ========================= */
 
 main {
-
-  padding:
-    20px 30px 40px;
+  padding: 24px 28px 40px;
 }
 
 #calendar {
-
   display: grid;
 
-  grid-template-columns:
-    repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 
-  gap: 12px;
+  gap: 14px;
 }
 
 /* =========================
@@ -229,23 +253,27 @@ main {
 ========================= */
 
 .day {
+  min-height: 170px;
 
-  min-height: 140px;
+  padding: 14px;
 
-  padding: 12px;
+  border-radius: 26px;
 
-  border-radius: 24px;
+  position: relative;
 
-  background:
-    rgba(255,255,255,0.05);
+  overflow: hidden;
 
-  border:
-    1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.04)
+  );
 
-  backdrop-filter:
-    blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  transition: 0.2s;
+  backdrop-filter: blur(18px);
+
+  transition: 0.25s;
 
   cursor: pointer;
 
@@ -254,23 +282,28 @@ main {
   flex-direction: column;
 }
 
-.day:hover {
+.day::before {
+  content: "";
 
-  transform:
-    translateY(-4px);
+  position: absolute;
 
-  background:
-    rgba(255,255,255,0.08);
+  inset: 0;
 
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.25);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+
+  pointer-events: none;
 }
 
-/* EMPTY DAY */
+.day:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* EMPTY */
 
 .day.empty {
-
-  opacity: 0.25;
+  opacity: 0.18;
 
   pointer-events: none;
 }
@@ -278,23 +311,21 @@ main {
 /* TODAY */
 
 .day.today {
+  border: 1px solid rgba(59, 130, 246, 0.5);
 
-  border:
-    1px solid rgba(59,130,246,0.5);
-
-  box-shadow:
-    0 0 25px rgba(59,130,246,0.25);
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.3);
 }
 
 /* DAY NUMBER */
 
 .day-number {
+  font-size: 1rem;
 
   font-weight: 700;
 
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* =========================
@@ -302,40 +333,33 @@ main {
 ========================= */
 
 .events {
-
   display: flex;
 
   flex-direction: column;
 
-  gap: 6px;
+  gap: 8px;
 }
 
 .event {
+  padding: 10px 12px;
 
-  padding:
-    8px 10px;
+  border-radius: 14px;
 
-  border-radius: 12px;
+  font-size: 0.86rem;
 
-  font-size: 0.85rem;
+  font-weight: 500;
 
-  background:
-    linear-gradient(
-      135deg,
-      #3b82f6,
-      #8b5cf6
-    );
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
 
-  box-shadow:
-    0 4px 15px rgba(59,130,246,0.3);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
 
-  transition: 0.15s;
+  transition: 0.2s;
 }
 
 .event:hover {
+  transform: scale(1.03);
 
-  transform:
-    scale(1.03);
+  box-shadow: 0 10px 28px rgba(168, 85, 247, 0.45);
 }
 
 /* =========================
@@ -343,13 +367,13 @@ main {
 ========================= */
 
 .modal {
-
   position: fixed;
 
   inset: 0;
 
-  background:
-    rgba(0,0,0,0.5);
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.6);
 
   display: flex;
 
@@ -357,7 +381,7 @@ main {
 
   align-items: center;
 
-  z-index: 1000;
+  padding: 20px;
 }
 
 .hidden {
@@ -365,75 +389,82 @@ main {
 }
 
 .modal-content {
+  width: 100%;
+  max-width: 420px;
 
-  width: 90%;
-  max-width: 400px;
+  padding: 28px;
 
-  padding: 24px;
+  border-radius: 30px;
 
-  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.98),
+    rgba(30, 41, 59, 0.95)
+  );
 
-  background:
-    rgba(17,24,39,0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  border:
-    1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(25px);
 
-  backdrop-filter:
-    blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 .modal-content h3 {
-
   margin-top: 0;
+
+  font-size: 1.5rem;
 }
 
 .modal-content input {
-
   width: 100%;
 
-  padding: 14px;
+  margin-top: 14px;
+
+  padding: 16px;
 
   border: none;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
-  margin-top: 12px;
-
-  background:
-    rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 
   color: white;
 
   font-size: 1rem;
+
+  outline: none;
 }
 
 .modal-buttons {
-
   display: flex;
 
   justify-content: flex-end;
 
-  gap: 10px;
+  gap: 12px;
 
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .modal-buttons button {
-
-  padding:
-    12px 18px;
+  padding: 13px 18px;
 
   border: none;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   cursor: pointer;
 
   color: white;
 
-  background:
-    rgba(255,255,255,0.08);
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+
+  transition: 0.2s;
+}
+
+.modal-buttons button:hover {
+  transform: translateY(-2px);
 }
 
 /* =========================
@@ -441,42 +472,94 @@ main {
 ========================= */
 
 @media (max-width: 900px) {
-
-  #calendar {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
+  /* MOBILE = AGENDA MODE */
 
   .weekdays {
-
     display: none;
+  }
+
+  #calendar {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .day {
+    min-height: auto;
+
+    padding: 18px;
+
+    border-radius: 28px;
+  }
+
+  .day-number {
+    font-size: 1.15rem;
+
+    margin-bottom: 16px;
+  }
+
+  .events {
+    gap: 10px;
+  }
+
+  .event {
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    font-size: 0.95rem;
   }
 }
 
+/* =========================
+   SMALL MOBILE
+========================= */
+
 @media (max-width: 600px) {
-
-  #calendar {
-
-    grid-template-columns:
-      1fr;
-  }
-
   .topbar {
+    padding: 22px 18px 10px;
 
-    padding: 20px;
-  }
+    flex-direction: column;
 
-  main {
-
-    padding: 10px;
+    align-items: stretch;
   }
 
   .logo-section {
-
     flex-direction: column;
 
     text-align: center;
   }
-}
 
+  .logo {
+    width: 82px;
+    height: 82px;
+  }
+
+  .logo-section h1 {
+    font-size: 2rem;
+  }
+
+  .logo-section p {
+    font-size: 0.95rem;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  #monthTitle {
+    min-width: auto;
+
+    font-size: 1.25rem;
+  }
+
+  main {
+    padding: 14px 16px 40px;
+  }
+
+  .day {
+    padding: 16px;
+  }
+}
