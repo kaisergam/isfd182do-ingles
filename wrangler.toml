@@ -1,0 +1,10 @@
+name = "isfd182do-ingles"
+main = "src/worker.js"
+compatibility_date = "2026-06-01"
+
+[[kv_namespaces]]
+binding = "CALENDAR"
+id = "9658a422109840be87ca316efa63c259"
+
+[assets]
+directory = "./public"
